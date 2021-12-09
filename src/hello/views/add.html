@@ -1,0 +1,36 @@
+<div class="rightcontent floatLeft">
+	<div class="location">
+		<div class="borderleft floatLeft"></div>
+		<span class="marginleft">当前位置：</span>
+		<span>文章管理&gt;</span>
+		<span>添加文章</span>
+	</div>
+	<!-- 最后那个参数是文件上传必须要有的，不然就是假上传 -->
+	<form method="post" action="/Article/AddArticle" enctype="multipart/form-data">
+		<div class="linetitle">
+			添加文章
+		</div>
+		<div class="textTitle">
+			<label class="type">文章标题：</label>
+			<input type="text" class="textTitleIn" name="articleName" />
+		</div>
+		<div class="con">
+			<label class="type">文章类型：</label>
+			<select name="select" id="" class="select">
+				{{range .types}}
+				<option>{{.TypeName}}</option>
+				{{end}}
+			</select>
+		</div>
+		<div class="textContent">
+			<label class="typeCon floatLeft">文章内容：</label>
+			<textarea name="textcontent" class="textarea"></textarea>
+		</div>
+		<div class="textPic">
+			<label>上传图片：</label>
+			<input type="file" name="uploadfile" id="textPicBtn" />
+		</div>
+		<div class="line"></div>
+		<input type="submit" id="addText" value="添加" name="add" />
+	</form>
+</div>

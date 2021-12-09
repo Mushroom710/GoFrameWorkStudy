@@ -1,0 +1,39 @@
+.rslides li img{
+	width: 640px;
+	height: 300px;
+}
+.content img{
+	/* overflow: hidden; */
+	/* width: 195px;
+	height: 150px; */
+	width: 20%;
+}
+.text{
+	height: 300px;
+	overflow: hidden;
+}
+
+.title{
+	font-size: 30px;
+	text-align: center;
+}
+.ArticleContent{
+	text-indent: 5%;
+	font:normal 20px Arial;
+}
+.about{
+	font:normal 20px Arial;
+	text-align: center;
+}
+.startArticle{
+	height: 100px;
+	overflow: hidden;
+}
+.picture img {
+	height: 400px;
+	width: 200px;
+	margin: 5px 5px 0 0;
+	/* border: 2px solid black; */
+	box-shadow: 5px 5px 8px gray;
+	border-radius: 15px;
+}

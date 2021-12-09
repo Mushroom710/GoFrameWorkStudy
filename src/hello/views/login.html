@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html id="ht">
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<link rel="stylesheet" type="text/css" href="static/css/login.css"/>
+		<link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
+		<script src="../static/js/jquery-1.12.4.min.js"></script>
+		<script>
+			$(function(){
+				$('#login').click(function(){
+					var userName = $('#userName').val()
+					var passWd = $('#password').val()
+					if(userName == '' || passWd == ''){
+						$('#userName').val()=''
+						$('#password').val()=''
+						alert('用户名或密码不能为空')
+						return
+					}
+					$.ajax({
+						url:'http://localhost:8080/Login',
+						type:'post',
+						data:{"UserName":userName,"Password":passWd},
+						success:function(res){
+							// alert('登录成功')
+							const root = document.getElementById('ht')
+							ht.innerHTML = res
+							// window.location.reload()
+						},
+						error:function(){
+							alert('服务器超时！')
+						}
+					})
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div id="root">
+			<div class="login_logo">
+				
+			</div>
+			<form class="login_form" name="login">
+				<h1 class="login_title">用户登录</h1>
+				<input type="text" id="userName" name="userName" class="input_txt" placeholder="用户名" value="{{.userName}}"/>
+				<input type="password" id="password" name="password" class="input_txt" placeholder="密码"/>
+				<div class="remeber">
+					<input type="checkbox" name="remeber" {{.check}}/>
+					<label>记住用户名</label>
+				</div>
+				<input type="button" value="登	录" class="input_sub" id="login"/>
+				<div class="register"><a href="/register">注	册</a></div>
+			</form>
+			<div class="login_bg">
+				
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-image: url('../img/background.jpeg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+.login_form{
+	margin: 200px auto 0;
+	background: aquamarine;
+	opacity: 0.8;
+	height: 350px;
+	width: 300px;
+}
+.login_title{
+	height: 70px;
+	background: darkgreen;
+	opacity: 0.9;
+	line-height: 70px;
+	text-align: center;
+	color: black;
+	margin-bottom: -5px;
+}
+.input_txt{
+	width: 270px;
+	height: 25px;
+	margin: 20px 0 5px 10px;
+}
+.remeber{
+	margin: 15px 0 10px 10px;
+}
+.register a{
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	color: black;
+}
+.input_sub,.register{
+	width: 260px;
+	height: 40px;
+	line-height: 40px;
+	background: lightgreen;
+	opacity: 0.9;
+	outline: none;
+	border: none;
+	margin: 10px 0 0 10px;
+	color: black;
+	font-size: 25px;
+	cursor: pointer;
+}

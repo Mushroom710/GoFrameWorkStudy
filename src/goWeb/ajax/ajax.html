@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <style>
+    </style>
+    <script>
+        $(function(){
+            // 简单的post和get请求
+            $('#get').click(function(){
+                $.get('http://localhost:8080/get',{a:123,b:456},function(data){
+                    console.log(data)
+                })
+            })
+            $('#post').click(function(){
+                $.post('http://localhost:8080/post',{a:789,b:123},function(data){
+                    console.log(data);
+                },'json')
+            })
+            // 定制化的Ajax请求，功能性更强
+            $('#ajax').click(function(){
+                var username = $('#username').val()
+                var passwd = $('#password').val()
+                if(username == ''|| passwd ==''){
+                    console.log('不能为空')
+                    return
+                }
+                $.ajax({
+                    url:'http://localhost:8080/ajax',
+                    data:{'admin':username,'passwd':passwd},
+                    type:'GET',
+                    // dataType:'json',
+                    success:function(data){
+                        console.log(username, passwd)
+                        const oDiv = document.getElementById('root')
+                        oDiv.innerHTML = data
+                    },
+                    error:function(){
+                        console.log('超时了')
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="box" id="root">
+        <button id="get">GET</button>
+        <button id="post">POST</button>
+        <form>
+            用户名：<input type="text" id="username"> <br>
+            密  码：<input type="password" id="password"> <br>
+            <input type="button" id="ajax" value="登录">
+        </form>
+    </div>
+</body>
+</html>

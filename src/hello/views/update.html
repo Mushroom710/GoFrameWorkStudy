@@ -1,0 +1,41 @@
+<div class="rightcontent floatLeft">
+	<div class="location">
+		<div class="borderleft floatLeft"></div>
+		<span class="marginleft">当前位置：</span>
+		<span>文章管理&gt;</span>
+		<span>编辑文章</span>
+	</div>
+	<form method="post" action="/Article/UpdateArticle/{{.article.Id}}" enctype="multipart/form-data">
+		<div class="linetitle">
+			编辑文章
+		</div>
+		<div class="textTitle">
+			<span class="type">文章标题：</span>
+			<input type="text" name="articleName" class="textTitleIn" value="{{.article.Title}}" />
+		</div>
+		<div class="con">
+			<label class="cata">文章分类：</label>
+			<select name="select" id="select" class="selectbox">
+				{{range .types}}
+					{{if compare $.typeData .TypeName}}
+					<option selected=true>{{.TypeName}}</option>
+					{{else}}
+					<option>{{.TypeName}}</option>
+					{{end}}
+				{{end}}
+			</select>
+		</div>
+		<div class="textContent">
+			<span class="typeCon floatLeft">文章内容：</span>
+			&nbsp;<textarea name="textcontent" rows="" cols="" class="textarea">{{.article.Content}}</textarea>
+		</div>
+		<div class="textPic">
+			<label>上传图片：</label>
+			<img src="../../{{.article.Img}}"/>
+			<!-- <div name="img">{{.article.Img}}</div> -->
+			<input type="file" name="uploadfile" id="textPicBtn" />
+		</div>
+		<div class="line"></div>
+		<input type="submit" id="addText" value="添加" name="add" />
+	</form>
+</div>

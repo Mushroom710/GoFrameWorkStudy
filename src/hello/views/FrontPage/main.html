@@ -1,0 +1,25 @@
+<div class="rslides_container">
+    <ul class="rslides" id="slider">
+        <li><img src="../../static/images/5.jpg" /></li>
+        <li><img src="../../static/images/6.jpg" /></li>
+        <li><img src="../../static/images/7.jpg" /></li>
+        <li><img src="../../static/images/8.jpg" /></li>
+    </ul>
+</div>
+{{range .articles}}
+    <article>
+        <div class="num" hidden=true>{{.Id}}</div>
+        <div class="heading">
+            <h2><a class="articleAjax" id="{{.Id}}">{{.Title}}</a></h2>
+            <p class="info">>>>管理员发布-{{.Time.Format "2006-01-02 15:04:05"}}-----{{.ArticleType.TypeName}}</p>
+        </div>
+        <div class="content">
+            <!-- <img src="../../static/images/thumb1.jpg"/> -->
+            <img src="{{.Img}}" alt="">
+            <p class="text">{{.Content}}</p>
+        </div>
+        <div class="footer">
+            <p class="more"><a class="articleAjax button" id="{{.Id}}">更多 >></a></p>
+        </div>
+    </article>
+{{end}}

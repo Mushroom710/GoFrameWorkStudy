@@ -1,0 +1,153 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.floatLeft{
+	float: left;
+}
+.floatRight{
+	float: right;
+}
+.clearFloat{
+	clear: all;
+}
+body{
+	/*background: #BBFFAA;*/
+	width: 1500px;
+	/*height: 600px;*/
+	margin: 0 auto;
+}
+ul{
+	list-style: none;
+}
+.titleBox{
+	height: 50px;
+	background: yellowgreen;
+}
+#titleName{
+	font-size: 20px;
+	line-height: 50px;
+	margin-left: 20px;
+}
+#exit{
+	width: 80px;
+	height: 30px;
+	margin: 10px 20px 0 0;
+	background: aquamarine;
+}
+.maincontent{
+	background: greenyellow;
+}
+.leftcontent{
+	width: 400px;
+	height: 700px;
+	background: gray;
+}
+.rightcontent{
+	width: 1100px;
+	height: 700px;
+	/*background: deepskyblue;*/
+}
+.headPic{
+	width: 200px;
+	height: 200px;
+	margin: 20px auto;
+}
+.headPicture{
+	width: 200px;
+	border-radius: 50%;
+}
+.welcome{
+	margin: 10px 0 0 45px;
+}
+.name{
+	color: aqua;
+}
+.article{
+	width: 400px;
+	height: 200px;
+	background: darkolivegreen;
+	margin-top: 60px;
+}
+.article a{
+	display: block;
+	text-decoration: none;
+	color: black;
+	font-size: 30px;
+}
+.article ul li{
+	margin: 10px 0 0 50px;
+}
+.location{
+	height: 50px;
+	width: 1000px;
+	background: #90EE90;
+	margin: 10px 0 0 50px;
+}
+.location span{
+	line-height: 50px;
+}
+.marginleft{
+	margin-left: 30px;
+}
+.borderleft{
+	height: 50px;
+	width: 1px;
+	border-left: orange 5px solid;
+}
+
+.linetitle{
+	height: 30px;
+	width: 1000px;
+	font-size: 20px;
+	margin: 30px 0 0 50px;
+	border-bottom: 2px solid black;
+}
+.textTitle{
+	margin: 10px 0 0 70px;
+}
+.textTitleIn{
+	width: 800px;
+	height: 25px;
+	text-indent: 2px;
+}
+.con ,.textContent,.textPic{
+    margin: 15px 0 0 70px;
+}
+.conbtn{
+	height: 28px;
+	margin-left: -17px;
+}
+.textarea{
+	width: 794px;
+	height: 300px;
+	padding: 3px;
+	text-indent: 2px;
+	resize: none;
+}
+.typeCon{
+	display: inline-block;
+}
+#addText{
+	width: 60px;
+	height: 30px;
+}
+.line{
+	width: 1000px;
+	margin: 30px 0 0 50px;
+	border-top: 2px solid black; 
+}
+#addText{
+	margin: 20px 0 0 155px;
+	background: #ADFF2F;
+	border: none;
+}
+a:hover{
+	color: chartreuse;
+}
+.selectbox{
+	padding: 5px 10px;
+}
+.textPic img{
+	width: 10%;
+}

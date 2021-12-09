@@ -1,0 +1,17 @@
+<title>文章列表</title>
+<link rel="stylesheet" type="text/css" href="../static/css/article.css" />
+<script src="../static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        $('.delete').click(function () {
+            // 这个默认是TRUE，直接删除，不好！
+            if (!confirm("是否删除？")) {
+                return false;
+            };
+        })
+        // 用于下拉框改变时提交请求
+        $('#select').change(function () {
+            $('#form').submit();
+        })
+    }
+</script>

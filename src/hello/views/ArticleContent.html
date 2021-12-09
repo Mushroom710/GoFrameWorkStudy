@@ -1,0 +1,47 @@
+<div class="rightcontent floatLeft" id="main_body">
+	<div class="location">
+		<div class="borderleft floatLeft"></div>
+		<span class="marginleft">当前位置：</span>
+		<span>文章管理&gt;</span>
+		<span>文章列表&gt;</span>
+		<span>文章详情</span>
+	</div>
+	<div class="linetitle">
+		文章详情
+	</div>
+	<div class="textTitle" id="main">
+		<span class="type">文章标题：</span>
+		<span class="title">
+			{{.article.Title}}
+		</span>
+	</div>
+	<div class="con">
+		<span class="type">文章类型：</span>
+		<span class="articletype">
+			{{.isoType.TypeName}}
+		</span>
+	</div>
+	<div class="textContent">
+		<span class="typeCon floatLeft">文章内容：</span>
+		<div class="content">
+			<img src="../../{{.article.Img}}" class="floatRight picWidth" />
+			<p>{{.article.Content}}</p>
+		</div>
+
+	</div>
+	<div class="count con">
+		阅读次数：<span>{{.article.Count}}</span>
+	</div>
+	<div class="men con">
+		<label for="">最近浏览：</label>
+		{{range .users}}
+		<span>{{.UserName}} | </span>
+		{{end}}
+	</div>
+	<div class="createtime con">
+		创建时间：<span>{{.article.Time.Format "2006-01-02 15:04:05"}}</span>
+	</div>
+	<!-- <div class="createtime con">
+		修改时间：<span>{{.article.ModifyTime.Format "2006-01-02 15:04:05"}}</span>
+	</div> -->
+</div>

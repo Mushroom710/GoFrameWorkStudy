@@ -1,0 +1,179 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.floatLeft{
+	float: left;
+}
+.floatRight{
+	float: right;
+}
+.clearFloat{
+	clear: all;
+}
+body{
+	/*background: #BBFFAA;*/
+	width: 1500px;
+	/*height: 600px;*/
+	margin: 0 auto;
+}
+ul{
+	list-style: none;
+}
+.titleBox{
+	height: 50px;
+	background: yellowgreen;
+}
+#titleName{
+	font-size: 20px;
+	line-height: 50px;
+	margin-left: 20px;
+}
+#exit{
+	width: 80px;
+	height: 30px;
+	margin: 10px 20px 0 0;
+	background: aquamarine;
+}
+.maincontent{
+	background: greenyellow;
+}
+.leftcontent{
+	width: 400px;
+	height: 700px;
+	background: gray;
+	/* position: fixed; */
+}
+.rightcontent{
+	width: 1100px;
+	height: 700px;
+	/*background: deepskyblue;*/
+}
+.headPic{
+	width: 200px;
+	height: 200px;
+	margin: 20px auto;
+}
+.headPicture{
+	width: 200px;
+	border-radius: 50%;
+}
+.welcome{
+	margin: 10px 0 0 45px;
+}
+.name{
+	color: aqua;
+}
+.article{
+	width: 400px;
+	height: 200px;
+	background: darkolivegreen;
+	margin-top: 60px;
+}
+.article a{
+	display: block;
+	text-decoration: none;
+	color: black;
+	font-size: 30px;
+}
+.article ul li{
+	margin: 10px 0 0 50px;
+}
+.location{
+	height: 50px;
+	width: 1000px;
+	background: #90EE90;
+	margin: 10px 0 0 50px;
+}
+.location span{
+	line-height: 50px;
+}
+.marginleft{
+	margin-left: 30px;
+}
+.borderleft{
+	height: 50px;
+	width: 1px;
+	border-left: orange 5px solid;
+}
+
+.con {
+    margin: 30px 0 0 50px;
+}
+.textinput {
+  	text-indent: 10px;
+    height: 30px;
+    border-radius: 10px 0 0 10px;
+   	outline: none;
+}
+.conbtn{
+	height: 32px;
+	margin-left: -15px;
+}
+table,th,td{
+	border:1px solid black;
+}
+table{
+	width: 1000px;
+	margin: 80px 0 0 50px;
+	border-collapse: collapse;
+}
+th{
+	height:50px;
+}
+td{
+	text-align: center;
+	height: 30px;
+}
+.textDel,.textEdit,.textRead{
+	color: aqua;
+	cursor: pointer;
+}
+.empty{
+	height: 30px;
+	width: 800px;
+	margin: 10px 0 0 150px;
+	border: 1px solid black;
+}
+.empty:hover{
+	background: chartreuse;
+}
+.PagingButton{
+	margin: 10px 0 0 400px;
+}
+.btn{
+	height: 30px;
+	width: 50px;
+}
+.selectbox{
+	padding: 5px 10px;
+}
+.textRead a,.textDel a{
+	color: aqua;
+	text-decoration: none;
+}
+a:hover{
+	color: chartreuse;
+}
+.btn2{
+	height: 30px;
+	margin-bottom: 10px;
+}
+.btn2 li{
+	float: left;
+	margin-right: 10px;
+}
+.btn2 li a{
+	display: block;
+	border: solid 1px black;
+	padding: 3px 10px;
+	background: gainsboro;
+	color: black;
+	text-decoration: none;
+}
+.btn2 li a:hover{
+	color: black;
+}
+.btn2 li a:active{
+	background-color: ghostwhite;
+}

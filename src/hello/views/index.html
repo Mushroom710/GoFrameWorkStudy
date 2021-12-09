@@ -1,0 +1,92 @@
+<div class="rightcontent floatLeft">
+    <div class="location">
+        <div class="borderleft floatLeft"></div>
+        <span class="marginleft">当前位置：</span>
+        <span>文章管理&gt;</span>
+        <span>文章列表</span>
+    </div>
+    <div class="con">
+        <span class="cata floatLeft">请选择文章分类：</span>
+        <!-- 按文章类别分类文章 -->
+        <!-- 因为post要重写大量重复代码，所以改成get请求，只需要增加几行代码即可 -->
+        <form method="get" action="/Article/ShowArticle" id="form" class="floatLeft">
+            <select name="select" id="select" class="selectbox">
+                <option>请选择：</option>
+                {{range .types}}
+                <option>{{.TypeName}}</option>
+                {{end}}
+            </select>
+            <input type="submit" value="" hidden="hidden">
+        </form>
+    </div>
+    <table>
+        <tr>
+            <th>文章标题</th>
+            <th>文章内容</th>
+            <th>添加时间</th>
+            <th>阅读量</th>
+            <th>删除</th>
+            <th>编辑</th>
+            <th>文章类型</th>
+        </tr>
+        <!--这就是一条数据-->
+        <!-- 这是JavaScript语法遍历数组 -->
+        <!-- 有开始，有结束 -->
+        <!-- 第一种遍历，需要在路由配置 :id -->
+        {{range .articles}}
+        <tr>
+            <td>{{.Title}}</td>
+            <td class="textRead"><a href="/Article/ArticleContent/{{.Id}}">查看详情</a></td>
+            <td>{{.Time.Format "2006-01-02 15:04:05"}}</td>
+            <td>{{.Count}}</td>
+            <td class="textDel"><a href="/Article/DeleteArticle/{{.Id}}" class="delete">删除</a></td>
+            <td class="textEdit"><a href="/Article/UpdateArticle/{{.Id}}" class="update">编辑</a></td>
+            <td>{{.ArticleType.TypeName}}</td>
+        </tr>
+        {{end}}
+        <!--
+				{{range $index,$val := .articles}}
+				<tr>
+					<td>{{$val.Id}}</td>
+					<td>{{$val.Title}}</td>
+					<td class="textRead"><a href="/ArticleContent?id={{$val.Id}}">查看详情</a></td>
+					<td>{{$val.Time.Format "2006-01-02 15:04:05"}}</td>
+					<td>{{$val.Count}}</td>
+					<td class="textDel">删除</td>
+					<td class="textEdit">编辑</td>
+					<td>文学新闻</td>
+				</tr>
+				{{end}}
+			-->
+    </table>
+    <div class="empty">
+    </div>
+    <div class="PagingButton">
+        <!-- <input type="button" value="下一页" class="btn" />
+				<input type="button" value="末页" class="btn" /> -->
+        <div class="btnBox">
+            <ul class="btn2">
+                <li><a href="/Article/ShowArticle?pageIndex=1&select={{.typeData}}">首页</a></li>
+                {{if compare .FirstPage true}}
+                <li><a>上一页</a></li>
+                {{else}}
+                <!--							这个是视图函数 因为在视图不能进行运算，所以使用视图函数来完成-->
+                <li><a href="/Article/ShowArticle?pageIndex={{.pageIndex | ShowPrePage}}&select={{.typeData}}">上一页</a>
+                </li>
+                {{end}}
+
+                {{if compare .LastPage false}}
+                <li><a href="/Article/ShowArticle?pageIndex={{.pageIndex | ShowNextPage}}&select={{.typeData}}">下一页</a>
+                </li>
+                {{else}}
+                <li><a>下一页</a></li>
+                {{end}}
+
+                <li><a href="/Article/ShowArticle?pageIndex={{.pageCount}}&select={{.typeData}}">末页</a></li>
+            </ul>
+        </div>
+        <span>共<span id="textNum">{{.count}}</span>条记录/</span>
+        <span>共<span id="pageNum">{{.pageCount}}</span>页/</span>
+        <span>当前第<span id="curPage">{{.pageIndex}}</span>页</span>
+    </div>
+</div>

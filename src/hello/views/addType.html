@@ -1,0 +1,47 @@
+<div class="rightcontent floatLeft">
+	<div class="location">
+		<div class="borderleft floatLeft"></div>
+		<span class="marginleft">当前位置：</span>
+		<span>文章管理&gt;</span>
+		<span>添加分类</span>
+	</div>
+	<table>
+		<tr>
+			<th>id</th>
+			<th>类别名称</th>
+			<th>管理操作</th>
+		</tr>
+		<!--这就是一条数据-->
+		{{range .articles}}
+		<tr>
+			<td>{{.Id}}</td>
+			<td class="textRead">{{.TypeName}}</td>
+			<td><a href="#" class="typedel">删除</a></td>
+		</tr>
+		{{end}}
+		<tr>
+			<td colspan="3" class="formtd">
+				<form action="/Article/AddArticleType" method="post">
+					<input type="text" name="typeName" placeholder="添加类型" class="text" />
+					<input type="submit" value="添加分类" class="submit" />
+				</form>
+			</td>
+		</tr>
+	</table>
+	<div class="empty">
+
+	</div>
+	<!-- <div class="PagingButton">
+		<div class="btnBox">
+			<ul class="btn">
+				<li><a href="#">首页</a></li>
+				<li><a href="#">上一页</a></li>
+				<li><a href="#">下一页</a></li>
+				<li><a href="#">末页</a></li>
+			</ul>
+		</div>
+		<span>共<span id="textNum">5</span>条记录/</span>
+		<span>共<span id="pageNum">5</span>页/</span>
+		<span>当前<span id="curPage">1</span>页</span>
+	</div> -->
+</div>

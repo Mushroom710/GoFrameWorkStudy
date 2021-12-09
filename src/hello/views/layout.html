@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	{{.title}}
+	<!-- <link rel="stylesheet" type="text/css" href="../static/css/article.css" />
+	<link rel="stylesheet" href="../static/css/add.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/addType.css" />
+	<link rel="stylesheet" type="text/css" href="../../static/css/ArticleContent.css" />
+	<link rel="stylesheet" type="text/css" href="../../static/css/update.css" /> -->
+
+	<!-- <script src="../static/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			$('.delete').click(function () {
+				// 这个默认是TRUE，直接删除，不好！
+				if (!confirm("是否删除？")) {
+					return false;
+				};
+			})
+			// 用于下拉框改变时提交请求
+			$('#select').change(function () {
+				$('#form').submit();
+			})
+		}
+	</script> -->
+</head>
+
+<body>
+	<div class="titleBox">
+		<span id="titleName" class="floatLeft">
+			文章发布系统
+		</span>
+		<form action="/Logout" method="get">
+			<input type="submit" id="exit" value="退出" class="floatRight" />
+		</form>
+	</div>
+	<div class="maincontent">
+		<div class="leftcontent floatLeft">
+			<div class="headPic">
+				<img src="../../static/img/beautyHead.jpg" class="headPicture" />
+				<div class="welcome">
+					欢迎你 <span class="name">{{.userName}}</span>
+				</div>
+			</div>
+			<div class="article">
+				<ul>
+					<li class="firstList"><a href="javascript:;">文章管理 &gt;</a></li>
+					<li class="List"><a href="/Article/ShowArticle">文章列表 &gt;</a></li>
+					<li class="List"><a href="/Article/AddArticle">添加文章 &gt;</a></li>
+					<li class="List"><a href="/Article/AddArticleType">添加分类 &gt;</a></li>
+				</ul>
+			</div>
+		</div>
+		{{.LayoutContent}}
+		</div>
+	</div>
+</body>
+</html>
