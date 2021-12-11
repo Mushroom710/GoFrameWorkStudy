@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录-加密</title>
+    <style>
+        body{
+            background: url('./static/img/000435-1627315475948c.jpg') no-repeat;
+            background-size: 100% 150%;
+        }
+        #root {
+            width: 300px;
+            height: 300px;
+            /* background: rgba(0, 247, 226, 0.5); */
+            margin: 100px auto;
+        }
+        #register{
+            font-size: 30px;
+            margin-top: 10px;
+        }
+    </style>
+    <script src="./static/js/jquery-1.12.4.min.js"></script>
+    <!-- 用于进行RSA加密的js文件 -->
+    <script src="./static/js/jsencrypt.min.js"></script>
+    <script>
+        $(function () {
+            var publickey = ''
+            $('#account').one('click', function () {
+                $.ajax({
+                    // 向后端接口请求RSA公钥数据
+                    url: 'http://localhost:8080/getPublic',
+                    type: 'get',
+                    success(re) {
+                        console.log(re);
+                        publickey = re
+                        // var encrypt = new JSEncrypt();
+                        // encrypt.setPublicKey(re);
+                        // var accountEn = encrypt.encrypt($('account').val());
+                        // var passwd = encrypt.encrypt($('password').val());
+                        // console.log('加密后：',accountEn);
+                        // console.log('加密后：',passwd);
+                    },
+                    error(err) {
+                        console.log(err)
+                    }
+                })
+            });
+            $('#submit').click(function () {
+                if ($('#account').val() == '' || $('#password').val() == '') {
+                    alert('账户或密码不能为空！')
+                    return
+                }
+                // 使用 jsencrypt对账户密码进行加密
+                var encrypt = new JSEncrypt();
+                encrypt.setPublicKey(publickey);
+                var accountEn = encrypt.encrypt($('#account').val());
+                var passwd = encrypt.encrypt($('#password').val());
+                console.log('账户加密后：', accountEn);
+                console.log('密码加密后：', passwd);
+                $.ajax({
+                    url: 'http://localhost:8080/login',
+                    type: 'post',
+                    data: {
+                        "Account": accountEn,
+                        "Password": passwd
+                    },
+                    success(re) {
+                        console.log(re)
+                    },
+                    error(err) {
+                        console.log(err);
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div id="root">
+        <h3>登录</h3> <br>
+        账户：<input type="text" id="account" name="account"> <br>
+        密码：<input type="password" id="password" name="password"> <br>
+        <input type="button" value="提交" name="submit" id="submit">
+        <div id="register"><a href="http://127.0.0.1:5500/src/goCodes/RSA%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86/%E7%AE%80%E5%8D%95%E7%9A%84%E5%8A%A0%E5%AF%86web%E4%BC%A0%E8%BE%93/FrontPage/register.html">注册</a></div>
+    </div>
+</body>
+
+</html>
